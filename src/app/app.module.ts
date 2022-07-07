@@ -6,19 +6,21 @@ import { SettingsComponent } from './settings/settings.component';
 import { BackupTasksComponent } from './backup-tasks/backup-tasks.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MenuComponent } from './components/menu/menu.component';
+import { CapacityPipe } from 'src/capacity.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     SettingsComponent,
     BackupTasksComponent,
-    MenuComponent
+    MenuComponent,
+    CapacityPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [CapacityPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

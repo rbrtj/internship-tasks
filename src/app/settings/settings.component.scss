@@ -22,7 +22,7 @@
     }
     .col-lg{
         display: flex;
-        flex-direction: colum;
+        flex-direction: column;
         width: 50rem;
         border-bottom: 1px solid lightgray;
         img{
@@ -31,6 +31,10 @@
             border-radius: 100px;
             padding-bottom: 5px;
         }
+        .additional-info{
+            color: gray;
+        }
+
     }
     .last-col{
         border: none;

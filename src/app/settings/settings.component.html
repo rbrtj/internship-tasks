@@ -7,7 +7,7 @@
             <p>Zdjecie</p>
         </div>
         <div class="col-lg">
-            <img src="assets/300.jpg" alt="avatar">
+            <img [src]="imagePath" alt="avatar">
         </div>
     </div>
     <div class="row">
@@ -15,7 +15,7 @@
             <p>Imie i nazwisko</p>
         </div>
         <div class="col-lg">
-            <p>Robert Jaszczurek</p>
+            <p>{{user.name}} {{user.surname}}</p>
         </div>
     </div>
     <div class="row">
@@ -23,7 +23,7 @@
             <p>Adresy e-mail</p>
         </div>
         <div class="col-lg last-col">
-            <p>adres.email@gmail.com</p>
+            <p>{{user.email}}</p>
         </div>
     </div>
 </div>
@@ -38,6 +38,7 @@
         </div>
         <div class="col-lg">
             <p>Konto osobiste</p>
+            <p class="additional-info">Ważne do {{user.expirationDate | date: 'd.M.y'}}</p>
         </div>
     </div>
     <div class="row">
@@ -45,7 +46,7 @@
             <p>Miejsce na dysku</p>
         </div>
         <div class="col-lg last-col">
-            <p>Zajęte: 74,5 GB z 200 GB</p>
+            <p>Zajęte: {{user.diskUsage | capacityPipe}} z {{user.diskCapacity | capacityPipe}}</p>
         </div>
     </div>
 </div>
