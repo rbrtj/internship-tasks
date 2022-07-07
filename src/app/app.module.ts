@@ -6,6 +6,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { BackupTasksComponent } from './backup-tasks/backup-tasks.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MenuComponent } from './components/menu/menu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MenuComponent } from './components/menu/menu.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
