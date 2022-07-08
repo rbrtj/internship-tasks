@@ -17,7 +17,9 @@ export class SettingsComponent implements OnInit {
 
   imagePath = `https://www.comarch-cloud.com/profile/v1/avatar/${this.userHash}/96`
   
-  constructor(private capacityPipe: CapacityPipe, private userService: UserService) { }
+  constructor(private capacityPipe: CapacityPipe, private userService: UserService) {
+
+   }
     
   ngOnInit(): void {
     this.getUsers();
@@ -25,6 +27,7 @@ export class SettingsComponent implements OnInit {
   
   getUsers() {
     this.userService.getUsers().subscribe(users => this.users = users);
+    console.log(this.users);
   }
 
 }

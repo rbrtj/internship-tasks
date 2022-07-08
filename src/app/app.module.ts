@@ -7,7 +7,9 @@ import { BackupTasksComponent } from './backup-tasks/backup-tasks.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MenuComponent } from './components/menu/menu.component';
 import { CapacityPipe } from 'src/capacity.pipe';
-
+import { HttpClientModule } from '@angular/common/http';
+import { InMemoryDataService } from './in-memory-data.service';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,11 @@ import { CapacityPipe } from 'src/capacity.pipe';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, {dataEncapsulation: false}
+    )
   ],
   providers: [CapacityPipe],
   bootstrap: [AppComponent]
