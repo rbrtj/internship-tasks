@@ -1,6 +1,5 @@
 import { Pipe, PipeTransform } from "@angular/core";
-import { USER } from "./app/sample-data/user";
-
+ 
 type unit = 'bytes' | 'KB' | 'MB' | 'GB' | 'TB' | 'PB';
 
 type unitPrecisionMap = {
@@ -18,7 +17,6 @@ const defaultPrecisionMap: unitPrecisionMap = {
 
 @Pipe({name: 'capacityPipe'})
 export class CapacityPipe implements PipeTransform {
-    user = USER;
     private readonly units: unit[] = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB'];
 
     transform(bytes: number = 0, precision: number | unitPrecisionMap = defaultPrecisionMap): string{

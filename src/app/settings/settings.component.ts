@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CapacityPipe } from 'src/capacity.pipe';
-import { USER } from '../sample-data/user';
+import { UserService } from '../user.service';
+import { User } from '../user.interface';
 
 @Component({
   selector: 'app-settings',
@@ -9,12 +10,21 @@ import { USER } from '../sample-data/user';
 })
 export class SettingsComponent implements OnInit {
 
-  user = USER;
+  users: User[] = [];
 
-  imagePath = `https://www.comarch-cloud.com/profile/v1/avatar/${this.user.userHash}/96`
-  constructor(private capacityPipe: CapacityPipe) { }
+  // Rozwiązanie do poprawy \/
+  userHash = "z2zvs009w0"
 
+  imagePath = `https://www.comarch-cloud.com/profile/v1/avatar/${this.userHash}/96`
+  
+  constructor(private capacityPipe: CapacityPipe, private userService: UserService) { }
+    
   ngOnInit(): void {
+    this.getUsers();
+  }
+  
+  getUsers() {
+    this.userService.getUsers().subscribe(users => this.users = users);
   }
 
 }

@@ -1,52 +1,52 @@
 <div class="label">
-    <h4>Dane profilowe</h4>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-sm">
-            <p>Zdjecie</p>
+        <h4>Dane profilowe</h4>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <p>Zdjecie</p>
+            </div>
+            <div class="col-lg">
+            <img [src]="imagePath" alt="">
+            </div>
         </div>
-        <div class="col-lg">
-            <img [src]="imagePath" alt="avatar">
+        <div class="row">
+            <div class="col-sm">
+                <p>Imie i nazwisko</p>
+            </div>
+            <div class="col-lg">
+                <p>{{users[0].name}} {{users[0].surname}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <p>Adresy e-mail</p>
+            </div>
+            <div class="col-lg last-col">
+                <p>{{users[0].email}}</p>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm">
-            <p>Imie i nazwisko</p>
-        </div>
-        <div class="col-lg">
-            <p>{{user.name}} {{user.surname}}</p>
-        </div>
+    
+    <div class="label">
+        <h4>Konto</h4>
     </div>
-    <div class="row">
-        <div class="col-sm">
-            <p>Adresy e-mail</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <p>Typ</p>
+            </div>
+            <div class="col-lg">
+                <p>Konto osobiste</p>
+                <p class="additional-info">Ważne do {{users[0].expirationDate | date: 'd.M.y'}}</p>
+            </div>
         </div>
-        <div class="col-lg last-col">
-            <p>{{user.email}}</p>
+        <div class="row">
+            <div class="col-sm">
+                <p>Miejsce na dysku</p>
+            </div>
+            <div class="col-lg last-col">
+                <p>Zajęte: {{users[0].diskUsage | capacityPipe}} z {{users[0].diskCapacity | capacityPipe}}</p>
+            </div>
         </div>
-    </div>
-</div>
-
-<div class="label">
-    <h4>Konto</h4>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-sm">
-            <p>Typ</p>
-        </div>
-        <div class="col-lg">
-            <p>Konto osobiste</p>
-            <p class="additional-info">Ważne do {{user.expirationDate | date: 'd.M.y'}}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm">
-            <p>Miejsce na dysku</p>
-        </div>
-        <div class="col-lg last-col">
-            <p>Zajęte: {{user.diskUsage | capacityPipe}} z {{user.diskCapacity | capacityPipe}}</p>
-        </div>
-    </div>
 </div>
