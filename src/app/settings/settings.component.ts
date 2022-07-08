@@ -10,14 +10,15 @@ import { User } from '../user.interface';
 })
 export class SettingsComponent implements OnInit {
 
-  users: User[] = [];
-
   // Rozwiązanie do poprawy \/
   userHash = "z2zvs009w0"
 
   imagePath = `https://www.comarch-cloud.com/profile/v1/avatar/${this.userHash}/96`
+
+  users!: User;
   
-  constructor(private capacityPipe: CapacityPipe, private userService: UserService) { }
+  constructor(private capacityPipe: CapacityPipe, private userService: UserService) {
+   }
     
   ngOnInit(): void {
     this.getUsers();

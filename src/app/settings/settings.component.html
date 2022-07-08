@@ -15,7 +15,7 @@
                 <p>Imie i nazwisko</p>
             </div>
             <div class="col-lg">
-                <p>{{users[0].name}} {{users[0].surname}}</p>
+                <p>{{users.name}} {{users.surname}}</p>
             </div>
         </div>
         <div class="row">
@@ -23,7 +23,7 @@
                 <p>Adresy e-mail</p>
             </div>
             <div class="col-lg last-col">
-                <p>{{users[0].email}}</p>
+                <p>{{users.email}}</p>
             </div>
         </div>
     </div>
@@ -38,7 +38,7 @@
             </div>
             <div class="col-lg">
                 <p>Konto osobiste</p>
-                <p class="additional-info">Ważne do {{users[0].expirationDate | date: 'd.M.y'}}</p>
+                <p class="additional-info">Ważne do {{users.expirationDate | date: 'd.M.y'}}</p>
             </div>
         </div>
         <div class="row">
@@ -46,7 +46,7 @@
                 <p>Miejsce na dysku</p>
             </div>
             <div class="col-lg last-col">
-                <p>Zajęte: {{users[0].diskUsage | capacityPipe}} z {{users[0].diskCapacity | capacityPipe}}</p>
+                <p>Zajęte: {{users.diskUsage | capacityPipe}} z {{users.diskCapacity | capacityPipe}}</p>
             </div>
         </div>
 </div>
