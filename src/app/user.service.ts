@@ -1,19 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { User } from './user.interface';
-import  Users from '../assets/user.json';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
 
 export class UserService {
 
+  private usersUrl = 'api/users';
 
-  constructor() {
+
+
+  constructor(private http: HttpClient) {
    }
 
-  getUsers(): Observable<User> {
-    const users = of(Users);
-    return users;
-  }
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.usersUrl);
+    };
 }

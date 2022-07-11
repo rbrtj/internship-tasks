@@ -1,0 +1,18 @@
+{
+    "user": {
+        "data": "Dane profilowe",
+        "photo": "Zdjęcie",
+        "name": "Imie i nazwisko",
+        "email": "E-mail",
+        "acc": "Konto",
+        "space": "Miejsce na dysku",
+        "acctype": "Typ",
+        "personalacc": "Konto osobiste",
+        "date": "Ważne do",
+        "usedspace": "Zużyte",
+        "usedof": "z"
+    },
+    "account": "Konto"
+    
+
+}

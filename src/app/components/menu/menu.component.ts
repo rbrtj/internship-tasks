@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
+  lang;
+
   constructor() { }
 
+
   ngOnInit(): void {
+    this.lang = localStorage.getItem('lang') || 'pl'
   }
 
+  changeLang(lang){
+    localStorage.setItem('lang', lang);
+    window.location.reload();
+  }
 }

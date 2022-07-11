@@ -1,10 +1,14 @@
+<div class="lang-container">
+    <button (click)="useLanguage('en')">EN</button>
+    <button (click)="useLanguage('pl')">PL</button>
+</div>
 <div class="label">
-        <h4>Dane profilowe</h4>
+        <h4>{{'user.data' | translate}}</h4>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-sm">
-                <p>Zdjecie</p>
+                <p>{{'user.photo' | translate}}</p>
             </div>
             <div class="col-lg">
             <img [src]="imagePath" alt="">
@@ -12,41 +16,41 @@
         </div>
         <div class="row">
             <div class="col-sm">
-                <p>Imie i nazwisko</p>
+                <p>{{'user.name' | translate}}</p>
             </div>
             <div class="col-lg">
-                <p>{{users.name}} {{users.surname}}</p>
+                <p>{{users[0].name}} {{users[0].surname}}</p>
             </div>
         </div>
         <div class="row">
             <div class="col-sm">
-                <p>Adresy e-mail</p>
+                <p>{{'user.email' | translate}}</p>
             </div>
             <div class="col-lg last-col">
-                <p>{{users.email}}</p>
+                <p>{{users[0].email}}</p>
             </div>
         </div>
     </div>
     
     <div class="label">
-        <h4>Konto</h4>
+        <h4>{{'account' | translate}}</h4>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-sm">
-                <p>Typ</p>
+                <p>{{'user.acctype' | translate}}</p>
             </div>
             <div class="col-lg">
-                <p>Konto osobiste</p>
-                <p class="additional-info">Ważne do {{users.expirationDate | date: 'd.M.y'}}</p>
+                <p>{{'user.personalacc' | translate}}</p>
+                <p class="additional-info">{{'user.date' | translate}} {{users[0].expirationDate | date: 'd.M.y'}}</p>
             </div>
         </div>
         <div class="row">
             <div class="col-sm">
-                <p>Miejsce na dysku</p>
+                <p>{{'user.space' | translate}}</p>
             </div>
             <div class="col-lg last-col">
-                <p>Zajęte: {{users.diskUsage | capacityPipe}} z {{users.diskCapacity | capacityPipe}}</p>
+                <p>{{'user.usedspace' | translate}}: {{users[0].diskUsage | capacityPipe}} {{'user.usedof' | translate}} {{users[0].diskCapacity | capacityPipe}}</p>
             </div>
         </div>
 </div>

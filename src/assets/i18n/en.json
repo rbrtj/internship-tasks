@@ -1,0 +1,18 @@
+{
+    "user": {
+        "data": "User data",
+        "photo": "Photo",
+        "name": "First and last name",
+        "email": "E-mail",
+        "acc": "Account",
+        "space": "Disk space",
+        "acctype": "Account type",
+        "personalacc": "Personal account",
+        "date": "Valid until",
+        "usedspace": "Used",
+        "usedof": "of"
+    },
+    "account": "Account"
+    
+
+}
