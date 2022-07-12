@@ -12,14 +12,21 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatCardModule} from '@angular/material/card';
+import {MatIcon, MatIconModule} from '@angular/material/icon';
+import {MatList, MatListModule} from '@angular/material/list';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
     SettingsComponent,
     BackupTasksComponent,
     MenuComponent,
-    CapacityPipe
+    CapacityPipe,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +40,15 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
         deps: [HttpClient]
       }
     }
-    )
+    ),
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatCardModule,
+    MatIconModule,
+    MatListModule,
+    MatCheckboxModule,
+    MatProgressSpinnerModule,
+    MatButtonModule
   ],
   providers: [CapacityPipe],
   bootstrap: [AppComponent]

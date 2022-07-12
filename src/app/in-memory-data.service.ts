@@ -23,7 +23,55 @@ export class InMemoryDataService implements InMemoryDbService {
       userHash: "z2zvs009w0"
       }
     ];
-    return {users};
+    const backupUsers = [ {
+      name: "Ważne dokumenty",
+      status: "11 z 19.44GB (75%)",
+      lastBackup: "Dziś, 10:54",
+      nextBackup: "13.10.2019",
+      device: "PCNOWAK",
+      devIcon: "folder"
+},
+{
+  name: "ftp://192.168.1.7",
+      status: "Z powodzeniem",
+      lastBackup: "Dziś, 10:54",
+      nextBackup: "13.10.2019",
+      device: "PCNOWAK",
+      devIcon: "language"
+},
+{
+  name: "Komputer służbowy",
+      status: "Z powodzeniem",
+      lastBackup: "Dziś, 10:54",
+      nextBackup: "13.10.2019",
+      device: "AKALINOWSKA",
+      devIcon: "computer"
+},
+{
+  name: "Komputer prywatny",
+      status: "Z ostrzeżeniem",
+      lastBackup: "Dziś, 10:54",
+      nextBackup: "13.10.2019",
+      device: "PCKALINOWSKA",
+      devIcon: "computer"
+},
+{
+  name: "MSQL Server",
+      status: "Z problemami",
+      lastBackup: "Dziś, 10:54",
+      nextBackup: "13.10.2019",
+      device: "AKALINOWSKA",
+      devIcon: "storage"
+},
+{
+  name: "Customers_db",
+      status: "Z powodzeniem",
+      lastBackup: "Dziś, 10:54",
+      nextBackup: "13.10.2019",
+      device: "PCKALINOWSKA",
+      devIcon: "storage"
+}]
+    return {users, backupUsers};
   }
   constructor() { }
 }
