@@ -20,6 +20,7 @@ import {MatList, MatListModule} from '@angular/material/list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatButtonModule} from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatListModule,
     MatCheckboxModule,
     MatProgressSpinnerModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule
   ],
   providers: [CapacityPipe],
   bootstrap: [AppComponent]
