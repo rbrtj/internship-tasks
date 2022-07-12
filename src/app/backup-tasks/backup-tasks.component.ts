@@ -19,21 +19,23 @@ export class BackupTasksComponent implements OnInit {
   
   selected3 = [];
   
+
   ngOnInit(): void {
     this.getBackupUsers();
   }
 
   getBackupUsers(){
     this.backupUsersService.getBackupUsers().subscribe(users => {
-    users? this.hideLoader(): '';
-    this.users = users;
-    })
+      users ? this.hideLoader() : '';
+      this.users = users;
+      })
   }
 
   hideLoader(){
     document.getElementById('loading').style.display = 'none'
   }
-
+  
+  
   reloadComponent(){
     window.location.reload();
   }
@@ -58,8 +60,9 @@ export class BackupTasksComponent implements OnInit {
     return (this.selected3.length > 0 && !this.isChecked());
   }
 
-  isChecked(){
-    return this.selected3.length === this.users.length;
+  // do poprawy \/
+   isChecked(){
+    return null//this.selected3.length === this.users.length;
   }
 
   toggleAll(event: MatCheckboxChange){

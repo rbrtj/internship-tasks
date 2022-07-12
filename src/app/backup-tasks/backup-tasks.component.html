@@ -1,49 +1,49 @@
 <button mat-raised-button (click)="reloadComponent()">Odśwież</button>
-<div class="container">
+<div class="container" #loaded>
     <div class="row">
         <div class="col">
             <p style="font-weight: bold;">
                 <mat-checkbox [checked]="isChecked()"
-                 [indeterminate]="isIndeterminate()"
-                  (change)="$event ? toggleAll($event) : null"
-                  ></mat-checkbox> Nazwa zadania</p>
+                [indeterminate]="isIndeterminate()"
+                (change)="$event ? toggleAll($event) : null"
+                ></mat-checkbox> Nazwa zadania</p>
+            </div>
+            <div class="col">
+                <p style="font-weight: bold;">Status zadania</p>
+            </div>
+            <div class="col">
+                <p style="font-weight: bold;">Ostatni backup</p>
+            </div>
+            <div class="col">
+                <p style="font-weight: bold;">Następny backup</p>
+            </div>
+            <div class="col">
+                <p style="font-weight: bold;">Urządzenie</p>
+            </div>
         </div>
-        <div class="col">
-            <p style="font-weight: bold;">Status zadania</p>
-        </div>
-        <div class="col">
-            <p style="font-weight: bold;">Ostatni backup</p>
-        </div>
-        <div class="col">
-            <p style="font-weight: bold;">Następny backup</p>
-        </div>
-        <div class="col">
-            <p style="font-weight: bold;">Urządzenie</p>
-        </div>
-</div>
-</div>
-<div class="container" *ngFor="let user of users">
-            <div class="row">
-                <div class="col">
-                    <mat-checkbox (click)="$event.stopPropagation()"
-                     (change)="$event ? toggle(user, $event) : null" 
-                     [checked]="exists(user)"></mat-checkbox>
-                    <mat-icon>{{user.devIcon}}</mat-icon>
-                        {{user.name}}
-                        {{user.description}}
-                </div>
-                <div class="col">
-                    {{user.status}}
-                </div>
-                <div class="col">
-                    {{user.lastBackup}}
-                </div>
-                <div class="col">
-                    {{user.nextBackup}}
+    </div>
+    <div class="container" *ngFor="let user of users">
+        <div class="row">
+            <div class="col">
+                <mat-checkbox (click)="$event.stopPropagation()"
+                (change)="$event ? toggle(user, $event) : null" 
+                [checked]="exists(user)"></mat-checkbox>
+                <mat-icon>{{user.devIcon}}</mat-icon>
+                {{user.name}}
+                {{user.description}}
+            </div>
+            <div class="col">
+                {{user.status}}
+            </div>
+            <div class="col">
+                {{user.lastBackup}}
+            </div>
+            <div class="col">
+                {{user.nextBackup}}
                 </div>
                 <div class="col">
                     {{user.device}}
                 </div>
             </div>
-    </div>
-<mat-spinner id="loading"></mat-spinner>
+        </div>
+        <mat-spinner id="loading"></mat-spinner>
