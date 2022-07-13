@@ -21,6 +21,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +32,8 @@ import { FormsModule } from '@angular/forms';
     BackupTasksComponent,
     MenuComponent,
     CapacityPipe,
+    SidenavComponent,
+    ToolbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +56,9 @@ import { FormsModule } from '@angular/forms';
     MatCheckboxModule,
     MatProgressSpinnerModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    MatSidenavModule,
+    MatToolbarModule
   ],
   providers: [CapacityPipe],
   bootstrap: [AppComponent]

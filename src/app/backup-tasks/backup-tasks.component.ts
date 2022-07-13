@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatCheckboxChange } from '@angular/material/checkbox';
-import { MatSelectionListChange } from '@angular/material/list';
 import { BackupUsersService } from '../backup-users.service';
 
 @Component({
@@ -10,34 +9,35 @@ import { BackupUsersService } from '../backup-users.service';
 })
 
 export class BackupTasksComponent implements OnInit {
-
+  
+  // *********
+  //  @ViewChild('loading') loading: ElementRef;
+  // *********
   
   constructor(private backupUsersService: BackupUsersService) {
   }
   
-  users: any[];
+  users: any[] = [];
   
   selected3 = [];
   
-
+  isLoading = true;
+  
   ngOnInit(): void {
     this.getBackupUsers();
   }
 
   getBackupUsers(){
     this.backupUsersService.getBackupUsers().subscribe(users => {
-      users ? this.hideLoader() : '';
       this.users = users;
+      this.isLoading = false;
+      console.log('xd');
       })
   }
 
-  hideLoader(){
-    document.getElementById('loading').style.display = 'none'
-  }
-  
-  
-  reloadComponent(){
-    window.location.reload();
+  onButtonClick(){
+    this.isLoading = true;
+    this.getBackupUsers();
   }
   
   //CHECKBOX
@@ -60,9 +60,8 @@ export class BackupTasksComponent implements OnInit {
     return (this.selected3.length > 0 && !this.isChecked());
   }
 
-  // do poprawy \/
    isChecked(){
-    return null//this.selected3.length === this.users.length;
+   return this.selected3.length === this.users.length;
   }
 
   toggleAll(event: MatCheckboxChange){

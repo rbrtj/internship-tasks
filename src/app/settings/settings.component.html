@@ -1,56 +1,57 @@
-<div class="lang-container">
-    <button (click)="useLanguage('en')">EN</button>
-    <button (click)="useLanguage('pl')">PL</button>
-</div>
-<div class="label">
-        <h4>{{'user.data' | translate}}</h4>
+    <div class="lang-container">
+        <p>{{'language' | translate}}</p>
+        <img src="../../assets/pl.png" alt="Polish Flag" (click)="useLanguage('pl')">
+        <img src="../../assets/uk.png" alt="UK Flag" (click)="useLanguage('en')">
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <p>{{'user.photo' | translate}}</p>
-            </div>
-            <div class="col-lg">
-            <img [src]="imagePath" alt="">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm">
-                <p>{{'user.name' | translate}}</p>
-            </div>
-            <div class="col-lg">
-                <p>{{users[0].name}} {{users[0].surname}}</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm">
-                <p>{{'user.email' | translate}}</p>
-            </div>
-            <div class="col-lg last-col">
-                <p>{{users[0].email}}</p>
-            </div>
-        </div>
-    </div>
-    
     <div class="label">
-        <h4>{{'account' | translate}}</h4>
+            <h4 translate>user.data</h4>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <p>{{'user.photo' | translate}}</p>
+                </div>
+                <div class="col-lg">
+                <img [src]="imagePath" alt="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <p>{{'user.name' | translate}}</p>
+                </div>
+                <div class="col-lg">
+                    <p>{{users[0].name}} {{users[0].surname}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <p>{{'user.email' | translate}}</p>
+                </div>
+                <div class="col-lg last-col">
+                    <p>{{users[0].email}}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="label">
+            <h4>{{'account' | translate}}</h4>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <p>{{'user.acctype' | translate}}</p>
+                </div>
+                <div class="col-lg">
+                    <p>{{'user.personalacc' | translate}}</p>
+                    <p class="additional-info">{{'user.date' | translate}} {{users[0].expirationDate | date: 'd.M.y'}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <p>{{'user.space' | translate}}</p>
+                </div>
+                <div class="col-lg last-col">
+                    <p>{{'user.usedspace' | translate}}: {{users[0].diskUsage | capacityPipe}} {{'user.usedof' | translate}} {{users[0].diskCapacity | capacityPipe}}</p>
+                </div>
+            </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <p>{{'user.acctype' | translate}}</p>
-            </div>
-            <div class="col-lg">
-                <p>{{'user.personalacc' | translate}}</p>
-                <p class="additional-info">{{'user.date' | translate}} {{users[0].expirationDate | date: 'd.M.y'}}</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm">
-                <p>{{'user.space' | translate}}</p>
-            </div>
-            <div class="col-lg last-col">
-                <p>{{'user.usedspace' | translate}}: {{users[0].diskUsage | capacityPipe}} {{'user.usedof' | translate}} {{users[0].diskCapacity | capacityPipe}}</p>
-            </div>
-        </div>
-</div>

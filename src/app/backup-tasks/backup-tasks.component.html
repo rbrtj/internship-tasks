@@ -1,4 +1,4 @@
-<button mat-raised-button (click)="reloadComponent()">Odśwież</button>
+<button mat-raised-button (click)="getBackupUsers()">Odśwież</button>
 <div class="container" #loaded>
     <div class="row">
         <div class="col">
@@ -46,4 +46,4 @@
                 </div>
             </div>
         </div>
-        <mat-spinner id="loading"></mat-spinner>
+        <mat-spinner *ngIf="isLoading"></mat-spinner>

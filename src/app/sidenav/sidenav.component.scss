@@ -1,0 +1,16 @@
+mat-sidenav-container{
+    height: 100%;
+    .header-item{
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+    mat-sidenav-content{
+        margin-top: 5rem;
+    }
+    mat-icon{
+        margin-right: 5px;
+    }
+    .rotate{
+        transform: rotate(180deg);
+    }
+}
