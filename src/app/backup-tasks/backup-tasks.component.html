@@ -2,23 +2,23 @@
 <div class="container" #loaded>
     <div class="row">
         <div class="col">
-            <p style="font-weight: bold;">
+            <p>
                 <mat-checkbox [checked]="isChecked()"
                 [indeterminate]="isIndeterminate()"
                 (change)="$event ? toggleAll($event) : null"
                 ></mat-checkbox> Nazwa zadania</p>
             </div>
             <div class="col">
-                <p style="font-weight: bold;">Status zadania</p>
+                <p>Status zadania</p>
             </div>
             <div class="col">
-                <p style="font-weight: bold;">Ostatni backup</p>
+                <p>Ostatni backup</p>
             </div>
             <div class="col">
-                <p style="font-weight: bold;">Następny backup</p>
+                <p>Następny backup</p>
             </div>
             <div class="col">
-                <p style="font-weight: bold;">Urządzenie</p>
+                <p>Urządzenie</p>
             </div>
         </div>
     </div>

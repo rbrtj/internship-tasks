@@ -19,7 +19,7 @@ export class BackupTasksComponent implements OnInit {
   
   users: any[] = [];
   
-  selected3 = [];
+  selectedUsers = [];
   
   isLoading = true;
   
@@ -29,6 +29,7 @@ export class BackupTasksComponent implements OnInit {
 
   getBackupUsers(){
     this.backupUsersService.getBackupUsers().subscribe(users => {
+      this.selectedUsers.length = 0;
       this.users = users;
       this.isLoading = false;
       console.log('xd');
@@ -43,34 +44,34 @@ export class BackupTasksComponent implements OnInit {
   //CHECKBOX
   toggle(item, event: MatCheckboxChange){
     if(event.checked){
-      this.selected3.push(item);
+      this.selectedUsers.push(item);
     } else {
-      const index = this.selected3.indexOf(item);
+      const index = this.selectedUsers.indexOf(item);
       if(index >= 0){
-        this.selected3.splice(index, 1);
+        this.selectedUsers.splice(index, 1);
       }
     }
   }
 
   exists(item){
-    return this.selected3.indexOf(item) > -1;
+    return this.selectedUsers.indexOf(item) > -1;
   }
 
   isIndeterminate(){
-    return (this.selected3.length > 0 && !this.isChecked());
+    return (this.selectedUsers.length > 0 && !this.isChecked());
   }
 
    isChecked(){
-   return this.selected3.length === this.users.length;
+   return this.selectedUsers.length === this.users.length;
   }
 
   toggleAll(event: MatCheckboxChange){
     if (event.checked){
       this.users.forEach(row=> {
-        this.selected3.push(row);
+        this.selectedUsers.push(row);
       })
     } else {
-      this.selected3.length = 0;
+      this.selectedUsers.length = 0;
     }
   }
 

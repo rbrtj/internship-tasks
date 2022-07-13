@@ -23,6 +23,14 @@
             </mat-list-item>
         </mat-nav-list>
     </mat-sidenav>
+    <mat-sidenav mode="side" opened="true" position="end">
+        <mat-nav-list>
+            <mat-list-item (click)="isExpandedRight = !isExpandedRight">
+                <mat-icon>menu</mat-icon>
+            </mat-list-item>
+            <mat-list-item *ngIf="isExpandedRight">Example item</mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
     <mat-sidenav-content>
         <router-outlet></router-outlet>
     </mat-sidenav-content>

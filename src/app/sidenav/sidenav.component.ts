@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class SidenavComponent implements OnInit {
 
   isExpanded = false;
+  isExpandedRight = false;
 
   isShowing = false;
 
