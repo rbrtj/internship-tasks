@@ -41,12 +41,11 @@ export class BackupTasksComponent implements OnInit {
   onButtonClick(){
     this.isLoading = true;
     this.getBackupUsers();
+    this.selUs = [];
   }
   
   //CHECKBOX
   getCheckboxData(){
     return this.checkboxDataService;
   }
-
-
 }

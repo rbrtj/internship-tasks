@@ -1,12 +1,11 @@
-<button mat-raised-button (click)="getBackupUsers()">Odśwież</button>
-
+<button mat-raised-button (click)="onButtonClick()">Odśwież</button>
 <div class="container" #loaded>
     <div class="row">
         <div class="col">
             <p>
                 <mat-checkbox [checked]="getCheckboxData().isChecked()"
                 [indeterminate]="getCheckboxData().isIndeterminate()"
-                (change)="$event ? getCheckboxData().toggleAll($event) : null"
+                (change)="getCheckboxData().toggleAll($event)"
                 ></mat-checkbox> Nazwa zadania</p>
             </div>
             <div class="col">
