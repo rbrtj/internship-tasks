@@ -1,11 +1,12 @@
 <button mat-raised-button (click)="getBackupUsers()">Odśwież</button>
+
 <div class="container" #loaded>
     <div class="row">
         <div class="col">
             <p>
-                <mat-checkbox [checked]="isChecked()"
-                [indeterminate]="isIndeterminate()"
-                (change)="$event ? toggleAll($event) : null"
+                <mat-checkbox [checked]="getCheckboxData().isChecked()"
+                [indeterminate]="getCheckboxData().isIndeterminate()"
+                (change)="$event ? getCheckboxData().toggleAll($event) : null"
                 ></mat-checkbox> Nazwa zadania</p>
             </div>
             <div class="col">
@@ -26,8 +27,8 @@
         <div class="row">
             <div class="col">
                 <mat-checkbox (click)="$event.stopPropagation()"
-                (change)="$event ? toggle(user, $event) : null" 
-                [checked]="exists(user)"></mat-checkbox>
+                (change)="$event ? getCheckboxData().toggle(user, $event) : null" 
+                [checked]="getCheckboxData().exists(user)"></mat-checkbox>
                 <mat-icon>{{user.devIcon}}</mat-icon>
                 {{user.name}}
                 {{user.description}}

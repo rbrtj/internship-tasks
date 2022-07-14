@@ -10,7 +10,24 @@ mat-sidenav-container{
     mat-icon{
         margin-right: 5px;
     }
+    mat-list-item{
+        padding: 20px;
+        .firstItem{
+            margin-top: 50px;
+        }
+    }
     .rotate{
         transform: rotate(180deg);
+    }
+    .right-item-list_moreInfo{
+        margin-top: 80px;
+    }
+    .right-list-item_info{
+        p{
+            font-size: 12px;
+        }
+        span{
+            color: lightgrey;
+        }
     }
 }

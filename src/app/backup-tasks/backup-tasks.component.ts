@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { BackupUsersService } from '../backup-users.service';
-
+import { CheckboxDataService } from '../checkbox-data.service';
 @Component({
   selector: 'app-backup-tasks',
   templateUrl: './backup-tasks.component.html',
@@ -14,25 +15,26 @@ export class BackupTasksComponent implements OnInit {
   //  @ViewChild('loading') loading: ElementRef;
   // *********
   
-  constructor(private backupUsersService: BackupUsersService) {
+  constructor(private backupUsersService: BackupUsersService, private checkboxDataService: CheckboxDataService) {
   }
   
   users: any[] = [];
   
-  selectedUsers = [];
-  
+  selUs: any[] = [];
+
   isLoading = true;
   
   ngOnInit(): void {
     this.getBackupUsers();
+     this.checkboxDataService.selectedUsersObservable().subscribe(selectedUsers =>{
+      this.selUs = selectedUsers;
+    })
   }
 
   getBackupUsers(){
     this.backupUsersService.getBackupUsers().subscribe(users => {
-      this.selectedUsers.length = 0;
       this.users = users;
       this.isLoading = false;
-      console.log('xd');
       })
   }
 
@@ -42,37 +44,9 @@ export class BackupTasksComponent implements OnInit {
   }
   
   //CHECKBOX
-  toggle(item, event: MatCheckboxChange){
-    if(event.checked){
-      this.selectedUsers.push(item);
-    } else {
-      const index = this.selectedUsers.indexOf(item);
-      if(index >= 0){
-        this.selectedUsers.splice(index, 1);
-      }
-    }
+  getCheckboxData(){
+    return this.checkboxDataService;
   }
 
-  exists(item){
-    return this.selectedUsers.indexOf(item) > -1;
-  }
-
-  isIndeterminate(){
-    return (this.selectedUsers.length > 0 && !this.isChecked());
-  }
-
-   isChecked(){
-   return this.selectedUsers.length === this.users.length;
-  }
-
-  toggleAll(event: MatCheckboxChange){
-    if (event.checked){
-      this.users.forEach(row=> {
-        this.selectedUsers.push(row);
-      })
-    } else {
-      this.selectedUsers.length = 0;
-    }
-  }
 
 }

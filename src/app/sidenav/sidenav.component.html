@@ -28,8 +28,33 @@
             <mat-list-item (click)="isExpandedRight = !isExpandedRight">
                 <mat-icon>menu</mat-icon>
             </mat-list-item>
-            <mat-list-item *ngIf="isExpandedRight">Example item</mat-list-item>
-        </mat-nav-list>
+            </mat-nav-list>
+            <mat-list class="right-list">
+            <mat-list-item *ngIf="isExpandedRight && selUs.length == 1; else elseBlock" class="firstItem">
+                <div class="right-list-item_info">
+                        <h3><b>{{selUs[0].name}}</b></h3>
+                        <p><span>Ostatni backup:</span>
+                            {{selUs[0].lastBackup}}</p> 
+                        <p>
+                            <span>Następny backup:</span>
+                            {{selUs[0].nextBackup}}
+                        </p>
+                 </div>
+            </mat-list-item>
+            <ng-template #elseBlock>
+                <mat-list-item *ngIf="isExpandedRight">
+                    Zaznaczone zadania: {{selUs.length}}
+                </mat-list-item>
+            </ng-template>
+            <mat-list-item *ngIf="isDatabaseCheck() && isExpandedRight">
+                <div class="right-item-list_moreInfo">
+                    <h3>Dostępne bazy danych:</h3>
+                    <ul *ngFor="let user of databaseArray">
+                        <li>{{user.name}}</li>
+                    </ul>
+                </div>
+            </mat-list-item>
+        </mat-list>
     </mat-sidenav>
     <mat-sidenav-content>
         <router-outlet></router-outlet>

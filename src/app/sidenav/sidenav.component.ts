@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BackupUsersService } from '../backup-users.service';
+import { CheckboxDataService } from '../checkbox-data.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -12,9 +14,32 @@ export class SidenavComponent implements OnInit {
 
   isShowing = false;
 
-  constructor() { }
+  users: any[] = [];
+  selUs: any[] = [];
+  
+  databaseArray = [{
+    name: 'MSQL Server'
+  },
+  {name: 'Customers_db'
+  }];
+
+  constructor(private checkboxDataService: CheckboxDataService, private backupUsersService: BackupUsersService) { }
 
   ngOnInit(): void {
+    this.getBackupUsers();
+    this.checkboxDataService.selectedUsersObservable().subscribe(selectedUsers =>{
+      this.selUs = selectedUsers;
+    })
+  }
+  
+  getBackupUsers(){
+    this.backupUsersService.getBackupUsers().subscribe(users => {
+      this.users = users;
+      })
+  }
+
+  isDatabaseCheck(): boolean{
+    return this.selUs.some(item => item.devIcon.includes('storage'));
   }
 
 }
