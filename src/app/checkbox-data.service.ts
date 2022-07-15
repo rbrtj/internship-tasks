@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BackupUsersService } from './backup-users.service';
-import { ArgumentOutOfRangeError, Observable, of, Subject } from 'rxjs';
+import { ArgumentOutOfRangeError, BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Injectable({
@@ -12,9 +12,6 @@ export class CheckboxDataService {
 
   selectedUsers: any[] = [];
 
-  public subject = new Subject<any[]>();
-
-  
   constructor(private backupUsersService: BackupUsersService) { 
     this.getData();
   }
@@ -54,8 +51,8 @@ export class CheckboxDataService {
         this.selectedUsers.length = 0;
         this.users.forEach(row=> {
           this.selectedUsers.push(row);
-          for(let i = 0; i < this.users.length; i ++){
-            this.users[i].selected = true;
+          for(let i = 0; i < this.selectedUsers.length; i ++){
+            this.selectedUsers[i].selected = true;
           }
           console.log(this.users);
         })
@@ -68,5 +65,9 @@ export class CheckboxDataService {
       return of(this.selectedUsers);
     }
 
+    refresh(){
+      this.getData();
+      this.selectedUsers.length = 0;
+    }
   }
   

@@ -17,8 +17,6 @@ export class SettingsComponent implements OnInit {
   imagePath = `https://www.comarch-cloud.com/profile/v1/avatar/${this.userHash}/96`
   
   users: User[] = [];
-  //users$!: Observable<User[]>;
-
 
   constructor(private capacityPipe: CapacityPipe, private userService: UserService, private translate: TranslateService) {
   translate.setDefaultLang('pl');

@@ -1,5 +1,4 @@
-<button mat-raised-button (click)="onButtonClick()">Odśwież</button>
-<button mat-raised-button (click)="onButtonClick1()">test</button>
+<button mat-raised-button (click)="getCheckboxData().refresh()">Odśwież</button>
 <div class="container" #loaded>
     <div class="row">
         <div class="col">
@@ -23,13 +22,12 @@
             </div>
         </div>
     </div>
-    <div class="container" *ngFor="let user of users">
+    <div class="container" *ngFor="let user of getCheckboxData().users">
         <div class="row">
             <div class="col">
                 <mat-checkbox (click)="$event.stopPropagation()"
                 (change)="$event ? getCheckboxData().toggle(user, $event) : null" 
-                [checked]="getCheckboxData().exists(user)"
-                [(ngModel)]="user.selected"></mat-checkbox>
+                [checked]="getCheckboxData().exists(user)"></mat-checkbox>
                 <mat-icon>{{user.devIcon}}</mat-icon>
                 {{user.name}}
                 {{user.description}}
