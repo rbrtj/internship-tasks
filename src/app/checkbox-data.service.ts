@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BackupUsersService } from './backup-users.service';
-import { Observable, of, Subject } from 'rxjs';
+import { ArgumentOutOfRangeError, Observable, of, Subject } from 'rxjs';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Injectable({
@@ -51,8 +51,13 @@ export class CheckboxDataService {
     
     toggleAll(event: MatCheckboxChange){
       if (event.checked){
+        this.selectedUsers.length = 0;
         this.users.forEach(row=> {
           this.selectedUsers.push(row);
+          for(let i = 0; i < this.users.length; i ++){
+            this.users[i].selected = true;
+          }
+          console.log(this.users);
         })
       } else {
         this.selectedUsers.length = 0;

@@ -15,7 +15,7 @@ export class SidenavComponent implements OnInit {
   isShowing = false;
 
   users: any[] = [];
-  selUs: any[] = [];
+  selectedUsers: any[] = [];
   
   databaseArray = [{
     name: 'MSQL Server'
@@ -28,7 +28,7 @@ export class SidenavComponent implements OnInit {
   ngOnInit(): void {
     this.getBackupUsers();
     this.checkboxDataService.selectedUsersObservable().subscribe(selectedUsers =>{
-      this.selUs = selectedUsers;
+      this.selectedUsers = selectedUsers;
     })
   }
   
@@ -39,7 +39,7 @@ export class SidenavComponent implements OnInit {
   }
 
   isDatabaseCheck(): boolean{
-    return this.selUs.some(item => item.devIcon.includes('storage'));
+    return this.selectedUsers.some(item => item.devIcon.includes('storage'));
   }
 
 }

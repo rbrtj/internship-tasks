@@ -20,15 +20,15 @@ export class BackupTasksComponent implements OnInit {
   
   users: any[] = [];
   
-  selUs: any[] = [];
+  selectedUsers: any[] = [];
 
   isLoading = true;
   
   ngOnInit(): void {
-    this.getBackupUsers();
-     this.checkboxDataService.selectedUsersObservable().subscribe(selectedUsers =>{
-      this.selUs = selectedUsers;
+    this.checkboxDataService.selectedUsersObservable().subscribe(selectedUsers =>{
+      this.selectedUsers = selectedUsers;
     })
+    this.getBackupUsers();
   }
 
   getBackupUsers(){
@@ -41,9 +41,13 @@ export class BackupTasksComponent implements OnInit {
   onButtonClick(){
     this.isLoading = true;
     this.getBackupUsers();
-    this.selUs = [];
+    this.selectedUsers = [];
   }
   
+  onButtonClick1(){
+    console.log(this.users);
+  }
+
   //CHECKBOX
   getCheckboxData(){
     return this.checkboxDataService;

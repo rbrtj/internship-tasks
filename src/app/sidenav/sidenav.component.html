@@ -30,20 +30,20 @@
             </mat-list-item>
             </mat-nav-list>
             <mat-list class="right-list">
-            <mat-list-item *ngIf="isExpandedRight && selUs.length == 1; else elseBlock" class="firstItem">
+            <mat-list-item *ngIf="isExpandedRight && selectedUsers.length == 1; else elseBlock" class="firstItem">
                 <div class="right-list-item_info">
-                        <h3><b>{{selUs[0].name}}</b></h3>
+                        <h3><b>{{selectedUsers[0].name}}</b></h3>
                         <p><span>Ostatni backup:</span>
-                            {{selUs[0].lastBackup}}</p> 
+                            {{selectedUsers[0].lastBackup}}</p> 
                         <p>
                             <span>Następny backup:</span>
-                            {{selUs[0].nextBackup}}
+                            {{selectedUsers[0].nextBackup}}
                         </p>
                  </div>
             </mat-list-item>
             <ng-template #elseBlock>
                 <mat-list-item *ngIf="isExpandedRight">
-                    Zaznaczone zadania: {{selUs.length}}
+                    Zaznaczone zadania: {{selectedUsers.length}}
                 </mat-list-item>
             </ng-template>
             <mat-list-item *ngIf="isDatabaseCheck() && isExpandedRight">
