@@ -14,12 +14,16 @@
                 <mat-icon *ngIf="isExpanded" [ngClass]="{'rotate' : isShowing}">arrow_drop_down</mat-icon>
             </mat-list-item>
             <div class="submenu">
-                <mat-list-item *ngIf="isExpanded && isShowing" [routerLink]="'/backup'">Backup Settings</mat-list-item>
+                <mat-list-item *ngIf="isExpanded && isShowing" [routerLink]="'backup'">Ustawienia Backupu</mat-list-item>
                 <mat-list-item *ngIf="isExpanded && isShowing">submenu backup2</mat-list-item>
             </div>
             <mat-list-item>
                 <mat-icon>upload</mat-icon>
                 <span *ngIf="isExpanded">Dysk</span>
+            </mat-list-item>
+            <mat-list-item [routerLink]="'devices'">
+                <mat-icon>devices</mat-icon>
+                <span *ngIf="isExpanded">Urządzenia</span>
             </mat-list-item>
         </mat-nav-list>
     </mat-sidenav>

@@ -25,6 +25,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { DevicesComponent } from './devices/devices.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     CapacityPipe,
     SidenavComponent,
     ToolbarComponent,
+    DevicesComponent,
   ],
   imports: [
     BrowserModule,
