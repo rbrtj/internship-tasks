@@ -26,6 +26,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { DevicesComponent } from './devices/devices.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogConfirmComponent } from './dialog-confirm/dialog-confirm.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +38,7 @@ import { DevicesComponent } from './devices/devices.component';
     SidenavComponent,
     ToolbarComponent,
     DevicesComponent,
+    DialogConfirmComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,8 @@ import { DevicesComponent } from './devices/devices.component';
     MatButtonModule,
     FormsModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDialogModule
   ],
   providers: [CapacityPipe],
   bootstrap: [AppComponent]

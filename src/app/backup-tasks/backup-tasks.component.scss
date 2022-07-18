@@ -27,3 +27,25 @@ mat-icon{
 button{
     margin-left: 10rem;
 }
+mat-card{
+    width: 80%;
+    margin: auto;
+    .mat-card_content{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        p{
+            margin: 0;
+        }
+    }
+    .mat-card_actions{
+        cursor: pointer;
+        mat-icon{
+            margin: 0 5px;
+            &:hover{
+                background-color: rgb(241, 241, 241);
+            }
+        }
+    }
+}

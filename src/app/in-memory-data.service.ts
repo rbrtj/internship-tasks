@@ -30,7 +30,8 @@ export class InMemoryDataService implements InMemoryDbService {
       nextBackup: "13.10.2019",
       device: "PCNOWAK",
       devIcon: "folder",
-      selected: false
+      selected: false,
+      _fileId: '1'
 },
 {
   name: "ftp://192.168.1.7",
@@ -39,7 +40,8 @@ export class InMemoryDataService implements InMemoryDbService {
       nextBackup: "13.10.2019",
       device: "PCNOWAK",
       devIcon: "language",
-      selected: false
+      selected: false,
+      _dbId: '1'
 },
 {
   name: "Komputer służbowy",
@@ -48,7 +50,8 @@ export class InMemoryDataService implements InMemoryDbService {
       nextBackup: "13.10.2019",
       device: "AKALINOWSKA",
       devIcon: "computer",
-      selected: false
+      selected: false,
+      _id: '1'
 },
 {
   name: "Komputer prywatny",
@@ -57,7 +60,8 @@ export class InMemoryDataService implements InMemoryDbService {
       nextBackup: "13.10.2019",
       device: "PCKALINOWSKA",
       devIcon: "computer",
-      selected: false
+      selected: false,
+      _id: '2'
 },
 {
   name: "MSQL Server",
@@ -66,7 +70,8 @@ export class InMemoryDataService implements InMemoryDbService {
       nextBackup: "13.10.2019",
       device: "AKALINOWSKA",
       devIcon: "storage",
-      selected: false
+      selected: false,
+      _dbId: '2'
 },
 {
   name: "Customers_db",
@@ -75,7 +80,8 @@ export class InMemoryDataService implements InMemoryDbService {
       nextBackup: "13.10.2019",
       device: "PCKALINOWSKA",
       devIcon: "storage",
-      selected: false
+      selected: false,
+      _dbId: '3'
 }]
     return {users, backupUsers};
   }

@@ -1,4 +1,16 @@
 <button mat-raised-button (click)="getCheckboxData().refresh()">Odśwież</button>
+<mat-card>
+    <div class="mat-card_content">
+        <div class="mat-card_selected">
+            <p>Wybrano {{selectedUsers.length}} z {{getCheckboxData().users.length}} </p>
+        </div>
+        <div class="mat-card_actions">
+            <mat-icon (click)="openDialog()">delete</mat-icon>
+            <mat-icon (click)="this.actionsService().backup()">autorenew</mat-icon>
+        </div>
+    </div>
+   
+</mat-card>
 <div class="container" #loaded>
     <div class="row">
         <div class="col">

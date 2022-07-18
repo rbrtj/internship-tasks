@@ -54,7 +54,6 @@ export class CheckboxDataService {
           for(let i = 0; i < this.selectedUsers.length; i ++){
             this.selectedUsers[i].selected = true;
           }
-          console.log(this.users);
         })
       } else {
         this.selectedUsers.length = 0;
