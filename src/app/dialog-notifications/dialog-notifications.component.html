@@ -1,0 +1,103 @@
+<div class="header">
+    <h2 mat-dialog-title>Zmień powiadomienia</h2>
+    <button mat-icon-button [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<div mat-dialog-content class="dialog-content">
+    <p>
+        Zmień powiadomienia dla wybranego zadania backupu
+    </p>
+    <mat-radio-group [(ngModel)]="selectedValue">
+            <div class="dialog-content_radioBtn">
+            <mat-radio-button [value]="0">Zastosuj powiadomienia domyślne</mat-radio-button>
+            <mat-radio-button [value]="1">Niestandardowe powiadomienia dla tego zadania</mat-radio-button>
+        </div>
+        </mat-radio-group>
+        <div class="container" *ngIf="selectedValue === 1">
+            <div class="row">
+                <div class="col">
+                    <p class="mainParagraph firstCol">
+                        Powiadomienia
+                    </p>
+                </div>
+                <div class="col">
+                    <p class="mainParagraph">
+                        E-mail
+                    </p>
+                </div> 
+                <div class="col">
+                    <p class="mainParagraph">
+                        SMS
+                    </p>
+                </div>
+                <div class="col">
+                    <p class="mainParagraph">
+                        Push
+                    </p>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col firstCol">
+                        <p>O zakończeniu backupu z powodzeniem</p>
+                    </div>
+                    <div class="col">
+                        <mat-checkbox></mat-checkbox>
+                    </div>
+                    <div class="col">
+                        <mat-checkbox></mat-checkbox>
+                    </div>
+                    <div class="col">
+                        <mat-checkbox></mat-checkbox>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col firstCol">
+                        <p>O zakończeniu backupu z ostrzeżeniami</p>
+                    </div>
+                    <div class="col">
+                        <mat-checkbox></mat-checkbox>
+                    </div>
+                    <div class="col">
+                        <mat-checkbox></mat-checkbox>
+                    </div>
+                    <div class="col">
+                        <mat-checkbox></mat-checkbox>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col firstCol">
+                        <p>O zakończeniu backupu z błędami</p>
+                    </div>
+                    <div class="col">
+                        <mat-checkbox></mat-checkbox>
+                    </div>
+                    <div class="col">
+                        <mat-checkbox></mat-checkbox>
+                    </div>
+                    <div class="col">
+                        <mat-checkbox></mat-checkbox>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col firstCol">
+                        <p>Gdy backup nie rozpoczął się w ciągu godziny</p>
+                    </div>
+                    <div class="col">
+                        <mat-checkbox></mat-checkbox>
+                    </div>
+                    <div class="col">
+                        <mat-checkbox></mat-checkbox>
+                    </div>
+                    <div class="col">
+                        <mat-checkbox></mat-checkbox>
+                    </div>
+                </div>
+            </div>
+</div>
+
+<div mat-dialog-actions [align]="'end'  ">
+    <button mat-raised-button [mat-dialog-close]="false">Anuluj</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="true">Zapisz</button>
+</div>

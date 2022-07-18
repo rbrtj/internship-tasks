@@ -1,0 +1,40 @@
+.mat-dialog-container{
+    width: 1000px !important;
+    height: 1000px;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dialog-content{
+    .dialog-content_radioBtn{
+        display: flex;
+        flex-direction: column;
+        .mat-radio-button{
+            margin-top: 1rem;
+        }
+    }
+}
+
+.container{
+    margin-top: 15px;
+    .row{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+        .firstCol{
+            width: 20rem;
+            text-align: left;
+        }
+        .col{
+            align-items: center;
+            text-align: center;
+            text-align: left;
+            .mainParagraph{
+                font-weight: bold;
+            }
+        }
+    }
+}

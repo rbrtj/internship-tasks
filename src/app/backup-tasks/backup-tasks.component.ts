@@ -60,4 +60,8 @@ export class BackupTasksComponent implements OnInit, OnDestroy {
     this.selectedUsers.length > 0 ? this.dialogService.confirmDialog() : alert('Wybierz przynajmniej jedno zadanie!');
   }
 
+  openNotificationsDialog(){
+    this.selectedUsers.length > 0 ? this.dialogService.openNotificationsDialog() : alert('Wybierz przynajmniej jedno zadanie!');
+  }
+
 }

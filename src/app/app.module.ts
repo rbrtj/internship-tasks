@@ -28,6 +28,9 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { DevicesComponent } from './devices/devices.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogConfirmComponent } from './dialog-confirm/dialog-confirm.component';
+import {MatMenuModule} from '@angular/material/menu';
+import { DialogNotificationsComponent } from './dialog-notifications/dialog-notifications.component';
+import {MatRadioModule} from '@angular/material/radio';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +42,7 @@ import { DialogConfirmComponent } from './dialog-confirm/dialog-confirm.componen
     ToolbarComponent,
     DevicesComponent,
     DialogConfirmComponent,
+    DialogNotificationsComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +68,9 @@ import { DialogConfirmComponent } from './dialog-confirm/dialog-confirm.componen
     FormsModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatMenuModule,
+    MatRadioModule
   ],
   providers: [CapacityPipe],
   bootstrap: [AppComponent]

@@ -7,6 +7,21 @@
         <div class="mat-card_actions">
             <mat-icon (click)="openDialog()">delete</mat-icon>
             <mat-icon (click)="this.actionsService().backup()">autorenew</mat-icon>
+            <mat-icon [mat-menu-trigger-for]="moreMenu">more_vert</mat-icon>
+            <mat-menu #moreMenu xPosition="before">
+                <button mat-button class="list-button">
+                    <div class="list-button_content" (click)="openNotificationsDialog()">
+                        <mat-icon mat-list-item>notifications</mat-icon>
+                        <p>Ustaw powiadomienia</p>
+                    </div>
+                </button>
+                <button mat-button class="list-button">
+                    <div class="list-button_content">
+                        <mat-icon mat-list-item>not_interested</mat-icon>
+                        <p>Dezaktywuj zadanie</p>
+                    </div>
+                </button>
+            </mat-menu>
         </div>
     </div>
    
