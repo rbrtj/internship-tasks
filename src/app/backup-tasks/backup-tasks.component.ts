@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { BackupUsersService } from '../backup-users.service';
 import { CheckboxDataService } from '../checkbox-data.service';
 import { DialogService } from '../dialog.service';
@@ -9,7 +10,7 @@ import { MainActionsService } from '../main-actions.service';
   styleUrls: ['./backup-tasks.component.scss']
 })
 
-export class BackupTasksComponent implements OnInit {
+export class BackupTasksComponent implements OnInit, OnDestroy {
   
   constructor(private backupUsersService: BackupUsersService, private checkboxDataService: CheckboxDataService,
     private mainActionsService: MainActionsService, private dialogService: DialogService) {
@@ -21,33 +22,41 @@ export class BackupTasksComponent implements OnInit {
   
   selectedUsers: any[] = [];
 
-  ngOnInit(): void {
+  backupUsersSubscription!: Subscription;
+  selectedUsersSubscription!: Subscription;
+
+  ngOnInit() {
     this.getBackupUsers();
     this.getSelectedUsers();
   }
 
-  getBackupUsers(){
-    this.backupUsersService.getBackupUsers().subscribe(users => {
+  ngOnDestroy() {
+    this.backupUsersSubscription.unsubscribe();
+    this.selectedUsersSubscription.unsubscribe();
+  }
+
+  getBackupUsers() {
+   this.backupUsersSubscription =  this.backupUsersService.getBackupUsers().subscribe(users => {
       this.users = users;
       this.isLoading = false;
       })
   }
 
-  getSelectedUsers(){
-    this.checkboxDataService.selectedUsersObservable().subscribe(selectedUsers =>{
+  getSelectedUsers() {
+    this.selectedUsersSubscription = this.checkboxDataService.selectedUsersObservable().subscribe(selectedUsers =>{
       this.selectedUsers = selectedUsers;
     })
   }
 
-  getCheckboxData(){
+  getCheckboxData() {
     return this.checkboxDataService;
   }
 
-  actionsService(){
+  actionsService() {
     return this.mainActionsService;
   }
 
-  openDialog(){
+  openDialog() {
     this.selectedUsers.length > 0 ? this.dialogService.confirmDialog() : alert('Wybierz przynajmniej jedno zadanie!');
   }
 

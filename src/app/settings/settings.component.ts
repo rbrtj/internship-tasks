@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CapacityPipe } from 'src/capacity.pipe';
 import { UserService } from '../user.service';
 import { User } from '../user.interface';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss']
 })
-export class SettingsComponent implements OnInit {
+export class SettingsComponent implements OnInit, OnDestroy {
 
   // Rozwiązanie do poprawy \/
   userHash = "z2zvs009w0"
@@ -17,6 +17,8 @@ export class SettingsComponent implements OnInit {
   imagePath = `https://www.comarch-cloud.com/profile/v1/avatar/${this.userHash}/96`
   
   users: User[] = [];
+
+  usersSubscription!: Subscription;
 
   constructor(private capacityPipe: CapacityPipe, private userService: UserService, private translate: TranslateService) {
   translate.setDefaultLang('pl');
@@ -27,8 +29,12 @@ export class SettingsComponent implements OnInit {
     this.getUsers();
   }
   
+  ngOnDestroy(){
+  this.usersSubscription.unsubscribe();
+  }
+
   getUsers() {
-    this.userService.getUsers().subscribe(users => this.users = users);
+  this.usersSubscription = this.userService.getUsers().subscribe(users => this.users = users);
     
   }
   
