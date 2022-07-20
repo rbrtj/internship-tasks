@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, HostListener } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { BackupUsersService } from '../backup-users.service';
 import { CheckboxDataService } from '../checkbox-data.service';
@@ -11,6 +11,10 @@ import { MainActionsService } from '../main-actions.service';
 })
 
 export class BackupTasksComponent implements OnInit, OnDestroy {
+  static BackupUsersService: any;
+  BackupUsersService(BackupUsersService: any, arg1: string) {
+      throw new Error('Method not implemented.');
+  }
   
   constructor(private backupUsersService: BackupUsersService, private checkboxDataService: CheckboxDataService,
     private mainActionsService: MainActionsService, private dialogService: DialogService) {

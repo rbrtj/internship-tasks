@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p>
+                <mat-checkbox>Nazwa zadania</mat-checkbox>
+            </p>
+        </div>
+        <div class="col"><p>Użytkownik</p></div>
+        <div class="col"><p>Urządzenie</p></div>
+        <div class="col"><p>Ostatni backup</p></div>
+        <div class="col"><p>Status zadania</p></div>
+    </div>
+</div>
+<div class="container" *ngFor="let user of adminUsers">
+    {{this.mergeUsers()}}
+    <div class="row">
+        <div class="col">
+            <mat-checkbox></mat-checkbox>
+            <mat-icon>{{user.devIcon}}</mat-icon>
+            {{user.name}}
+            {{user.description}}
+        </div>
+        <div class="col">
+            {{user.username}}
+        </div>
+        <div class="col">
+            {{user.device}}
+        </div>
+        <div class="col">
+            {{user.lastBackup}}
+        </div>
+        <div class="col">
+            {{user.status}}
+        </div>
+    </div>
+</div>

@@ -4,7 +4,7 @@
             <mat-list-item (click)="isExpanded =  !isExpanded" class="header-item">
                 <mat-icon>menu</mat-icon>
             </mat-list-item>
-            <mat-list-item [routerLink]="'settings'">
+            <mat-list-item [routerLink]="'settings'" (click)="isExpanded ? isExpanded = false : null">
                 <mat-icon>home</mat-icon>
                 <span *ngIf="isExpanded">Start</span>
             </mat-list-item>
@@ -13,17 +13,21 @@
                 <span *ngIf="isExpanded">Backup</span>
                 <mat-icon *ngIf="isExpanded" [ngClass]="{'rotate' : isShowing}">arrow_drop_down</mat-icon>
             </mat-list-item>
-            <div class="submenu">
-                <mat-list-item *ngIf="isExpanded && isShowing" [routerLink]="'backup'">Ustawienia Backupu</mat-list-item>
-                <mat-list-item *ngIf="isExpanded && isShowing">submenu backup2</mat-list-item>
+            <div class="submenu" (click)="isExpanded ? isExpanded = false : null">
+                <mat-list-item *ngIf="isExpanded && isShowing" [routerLink]="'backup'" (click)="isShowing ? isShowing = false : null">Ustawienia Backupu</mat-list-item>
+                <mat-list-item *ngIf="isExpanded && isShowing" (click)="isShowing ? isShowing = false : null">submenu backup2</mat-list-item>
             </div>
-            <mat-list-item>
+            <mat-list-item (click)="isExpanded ? isExpanded = false : null">
                 <mat-icon>upload</mat-icon>
                 <span *ngIf="isExpanded">Dysk</span>
             </mat-list-item>
-            <mat-list-item [routerLink]="'devices'">
+            <mat-list-item [routerLink]="'devices'" (click)="isExpanded ? isExpanded = false : null">
                 <mat-icon>devices</mat-icon>
                 <span *ngIf="isExpanded">Urządzenia</span>
+            </mat-list-item>
+            <mat-list-item [routerLink]="'admin'" (click)="isExpanded ? isExpanded = false : null">
+                <mat-icon>work</mat-icon>
+                <span *ngIf="isExpanded">Panel Administratora</span>
             </mat-list-item>
         </mat-nav-list>
     </mat-sidenav>

@@ -31,6 +31,7 @@ import { DialogConfirmComponent } from './dialog-confirm/dialog-confirm.componen
 import {MatMenuModule} from '@angular/material/menu';
 import { DialogNotificationsComponent } from './dialog-notifications/dialog-notifications.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { AdminComponent } from './admin/admin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,7 @@ import {MatRadioModule} from '@angular/material/radio';
     DevicesComponent,
     DialogConfirmComponent,
     DialogNotificationsComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
